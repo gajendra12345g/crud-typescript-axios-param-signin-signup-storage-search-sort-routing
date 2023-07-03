@@ -16,7 +16,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import { useNavigate } from 'react-router';
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+// import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 interface UserData {
   id: number;
@@ -66,9 +66,9 @@ export default function UserTable() {
       .then((d: UserData[]) => setUserData(d));
   }, []);
   
-  const handleUserDetail=(row:any)=>{
-    navigate('/userdetail',{state:{row:row}})
-  }
+  // const handleUserDetail=(row:any)=>{
+  //   navigate('/userdetail',{state:{row:row}})
+  // }
 
   const handleParamUserDetail = (row: UserData) => {
     navigate(`/userdetail?id=${row.id}&name=${encodeURIComponent(row.name)}&username=${encodeURIComponent(row.username)}&email=${encodeURIComponent(row.email)}`);
@@ -335,12 +335,12 @@ export default function UserTable() {
         <IconButton onClick={() => handleDeleteUser(row.id)}>
           <DeleteIcon color='success'/>
         </IconButton>
-        <IconButton onClick={() => handleParamUserDetail(row)}>
-          <TrendingUpIcon color='success'/>
-        </IconButton>
-        <IconButton onClick={() => handleUserDetail(row)}>
+         <IconButton onClick={() => handleParamUserDetail(row)}>
           <CallMadeIcon color='success'/>
         </IconButton>
+        {/* <IconButton onClick={() => handleUserDetail(row)}>
+          <TrendingUpIcon color='success'/>
+        </IconButton> */}
       </TableCell>
     </TableRow>
   ))}
